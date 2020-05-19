@@ -6,7 +6,6 @@ from math import gcd
 import json
 import _thread
 
-
 privKeys = []
 publicKeys = []
 votesTally = {}
