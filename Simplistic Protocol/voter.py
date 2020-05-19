@@ -33,10 +33,15 @@ while True:
 	elif choice == 2:
 		print("Enter candidate id")
 		vote = int(input())
+		vote += voterN
 		# Sign using voter's private key
 		signedMessage = pow(vote, voterD, voterN)
 		# Encrypt using CTF's public key
 		encMesage = pow(signedMessage, ctfE, ctfN)
+		print("voterD", voterD)
+		print("voterN", voterN)
+		print("ctfE", ctfE)
+		print("ctfN", ctfN)
 		payload = '{"choice": "vote", "vote": "' + str(encMesage) + '", "e": "' + str(voterE) + '", "N": "' + str(voterN) + '"}'
 		client_socket.sendall(payload.encode())
 		recv = client_socket.recv(4096)
