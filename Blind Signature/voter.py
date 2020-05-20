@@ -58,7 +58,6 @@ while True:
 		payload = '{"choice": "vote", "vote": "' + str(blindMessage) + '", "e": "' + str(voterE) + '", "N": "' + str(voterN) + '"}'
 		client_socket.sendall(payload.encode())
 		recv = client_socket.recv(4096).decode()
-		print(recv)
 		if "vote" in recv.lower():
 			continue
 		data = json.loads(recv)
